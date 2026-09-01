@@ -3,682 +3,420 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dept. of Zoology, BHU</title>
-<meta name="description" content="Department of Zoology, Banaras Hindu University — study material and specimen resource hub.">
+<title>Department of Zoology · BHU Student Resource Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ============ TOKENS ============ */
   :root{
-    --clay-bg-1:#EFE6D6;
-    --clay-bg-2:#E4D6BC;
-    --card:#F4ECDD;
-    --card-deep:#E9DCC3;
-    --ink:#3A2C1D;
-    --ink-soft:#6B5A46;
-    --terracotta:#C1683D;
-    --terracotta-dark:#9E4F2C;
-    --forest:#3F5C3A;
-    --forest-dark:#2C4128;
-    --gold:#D9A441;
-    --cream:#FBF6EC;
-    --shadow-d: 10px 10px 24px rgba(58,44,29,.28), -10px -10px 20px rgba(255,252,244,.75);
-    --shadow-d-lg: 16px 16px 36px rgba(58,44,29,.30), -14px -14px 30px rgba(255,252,244,.8);
-    --shadow-in: inset 6px 6px 14px rgba(58,44,29,.22), inset -6px -6px 12px rgba(255,252,244,.7);
-    --radius-blob: 42% 58% 61% 39% / 44% 40% 60% 56%;
+    --sand:#EDE6D3;
+    --sand-light:#F8F4E9;
+    --moss:#5F7A5A;
+    --moss-dark:#3E5238;
+    --clay:#C97B58;
+    --clay-dark:#A85F3F;
+    --ochre:#D9A441;
+    --ink:#33362E;
+    --ink-soft:#5C6152;
+    --shadow-light: 8px 8px 16px rgba(150,130,95,0.35), -8px -8px 16px rgba(255,255,255,0.75);
+    --shadow-inset: inset 4px 4px 8px rgba(150,130,95,0.35), inset -4px -4px 8px rgba(255,255,255,0.7);
+    --shadow-soft: 5px 5px 12px rgba(150,130,95,0.28), -5px -5px 12px rgba(255,255,255,0.7);
   }
 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    font-family:'Manrope',sans-serif;
+    background:var(--sand);
     color:var(--ink);
-    background:
-      radial-gradient(ellipse 900px 500px at 12% -8%, #f2e8d4 0%, transparent 60%),
-      radial-gradient(ellipse 700px 500px at 100% 15%, #e6dcc6 0%, transparent 55%),
-      linear-gradient(160deg, var(--clay-bg-1), var(--clay-bg-2) 70%);
-    background-attachment:fixed;
-    min-height:100vh;
-    line-height:1.55;
+    font-family:'Nunito Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-  h1,h2,h3{font-family:'Fraunces', serif; margin:0; font-weight:600; color:var(--ink);}
-  p{margin:0;}
-  a{color:inherit;}
-  button{font-family:'Manrope',sans-serif;}
-  ::selection{background:var(--gold); color:var(--ink);}
-
-  /* floating background blobs */
-  .bg-blob{position:fixed; border-radius:50%; filter:blur(2px); opacity:.35; z-index:0; pointer-events:none;}
-  .bg-blob.b1{width:380px;height:380px; background:radial-gradient(circle at 35% 30%, #d8c8a4, transparent 70%); top:-120px; left:-140px;}
-  .bg-blob.b2{width:300px;height:300px; background:radial-gradient(circle at 60% 40%, #b9c9ae, transparent 70%); bottom:-100px; right:-100px;}
-  .bg-blob.b3{width:220px;height:220px; background:radial-gradient(circle at 40% 40%, #e3b98a, transparent 70%); top:40%; right:6%; opacity:.25;}
-
-  .wrap{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
-
-  /* ============ NAV ============ */
-  nav.topbar{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 0;
-  }
-  .brand{display:flex; align-items:center; gap:14px;}
-  .brand-text .eyebrow{font-size:12.5px; color:var(--ink-soft); letter-spacing:.02em;}
-  .brand-text .title{font-family:'Fraunces',serif; font-size:19px; font-weight:600; margin-top:1px;}
-  .nav-links{display:flex; gap:26px; font-size:14.5px; font-weight:600;}
-  .nav-links a{text-decoration:none; color:var(--ink-soft); transition:color .2s;}
-  .nav-links a:hover{color:var(--terracotta-dark);}
-
-  /* ============ LOGO ============ */
-  .logo-blob{width:52px; height:52px; flex-shrink:0;}
-
-  /* ============ HERO ============ */
-  header.hero{
-    text-align:center;
-    padding:38px 0 20px;
-    position:relative;
-  }
-  .dept-line{
-    font-size:15px; letter-spacing:.02em; color:var(--forest-dark);
-    font-weight:700; margin-bottom:6px;
-  }
-  .zoology-badge{
-    position:relative;
-    display:inline-block;
-    padding:6px 14px 18px;
-    margin:6px 0 10px;
-  }
-  .zoology-badge svg.arc{position:absolute; top:-16px; left:50%; transform:translateX(-50%); width:118%; height:auto; z-index:0;}
-  .zoology-word{
-    position:relative; z-index:1;
+  h1,h2,h3,.display{
     font-family:'Fraunces', serif;
-    font-weight:700;
-    font-size:clamp(46px, 9vw, 92px);
-    letter-spacing:.01em;
-    background:linear-gradient(180deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-    text-shadow:0 2px 0 rgba(255,255,255,.35);
+    color:var(--moss-dark);
+    margin:0;
+    letter-spacing:-0.01em;
   }
-  .university-line{font-size:16.5px; color:var(--ink-soft); font-weight:600; margin-top:2px;}
-  .university-line span{color:var(--forest-dark);}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
 
-  .hero-pills{
-    display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:22px;
+  /* ---------- Background motif ---------- */
+  .bg-layer{
+    position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none;
   }
-  .pill{
-    display:flex; align-items:center; gap:8px;
-    background:var(--card);
-    border-radius:999px;
-    padding:9px 18px;
-    box-shadow:var(--shadow-d);
-    font-size:13.5px; font-weight:700; color:var(--ink-soft);
-  }
-  .pill .dot{width:8px;height:8px;border-radius:50%; background:var(--forest);}
-  .pill.piracy{color:var(--terracotta-dark);}
-  .pill.piracy .dot{background:var(--terracotta-dark);}
-  #visitCount{color:var(--ink); font-variant-numeric:tabular-nums;}
-
-  /* ============ SECTIONS / CLAY CARDS ============ */
-  section{padding:44px 0;}
-  .section-head{max-width:560px; margin:0 auto 28px; text-align:center;}
-  .section-head h2{font-size:clamp(26px,4vw,34px);}
-  .section-head p{color:var(--ink-soft); margin-top:8px; font-size:15px;}
-
-  .clay-card{
-    background:linear-gradient(155deg, var(--card), var(--card-deep));
-    border-radius:36px;
-    box-shadow:var(--shadow-d-lg);
-    padding:34px;
-  }
-  .clay-card.organic{border-radius: 48px 30px 46px 26px;}
-
-  /* about */
-  .about-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:26px; align-items:stretch;}
-  @media (max-width:760px){.about-grid{grid-template-columns:1fr;}}
-  .about-grid p{color:var(--ink-soft); font-size:15px;}
-  .stat-strip{display:flex; gap:16px; margin-top:20px;}
-  .stat{flex:1; background:var(--cream); border-radius:22px; padding:16px; box-shadow:var(--shadow-in); text-align:center;}
-  .stat b{display:block; font-family:'Fraunces',serif; font-size:24px; color:var(--forest-dark);}
-  .stat span{font-size:12px; color:var(--ink-soft);}
-  .about-figure{
-    border-radius:44px 24px 44px 24px;
-    background:linear-gradient(150deg,#dfe6d2,#c9d6bb);
-    box-shadow:var(--shadow-d);
+  .bg-layer svg{position:absolute; opacity:0.10;}
+  .bg-watermark{
+    position:fixed; inset:0; z-index:-1;
     display:flex; align-items:center; justify-content:center;
-    padding:20px;
+    pointer-events:none;
+  }
+  .bg-watermark span{
+    font-family:'Fraunces', serif;
+    font-size:min(14vw, 190px);
+    font-weight:600;
+    color:var(--moss);
+    opacity:0.05;
+    white-space:nowrap;
+    transform:rotate(-6deg);
   }
 
-  /* study material button */
-  .material-card{display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
-  .material-icon{
-    width:88px; height:88px; flex-shrink:0; border-radius:var(--radius-blob);
-    background:linear-gradient(150deg, var(--forest), var(--forest-dark));
-    box-shadow:var(--shadow-d);
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(237,230,211,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(95,122,90,0.15);
+  }
+  nav{
+    max-width:1180px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-badge{
+    width:42px; height:42px; border-radius:50%;
+    background:linear-gradient(145deg, var(--sand-light), var(--sand));
+    box-shadow:var(--shadow-soft);
     display:flex; align-items:center; justify-content:center;
   }
-  .material-text{flex:1; min-width:220px;}
-  .material-text h3{font-size:21px; margin-bottom:6px;}
-  .material-text p{color:var(--ink-soft); font-size:14.5px;}
-  .clay-btn{
-    appearance:none; border:none; cursor:pointer;
-    font-weight:700; font-size:14.5px; letter-spacing:.01em;
-    padding:14px 26px; border-radius:18px;
-    color:var(--cream);
-    background:linear-gradient(155deg, var(--terracotta), var(--terracotta-dark));
-    box-shadow:var(--shadow-d);
+  .brand-text{line-height:1.15;}
+  .brand-text strong{display:block; font-family:'Fraunces',serif; font-size:1.02rem; color:var(--moss-dark);}
+  .brand-text small{color:var(--ink-soft); font-size:0.72rem;}
+  .nav-links{display:flex; gap:6px; align-items:center; flex-wrap:wrap;}
+  .nav-links a{
+    padding:8px 14px; border-radius:14px; font-weight:700; font-size:0.88rem;
+    color:var(--moss-dark); text-decoration:none; transition:box-shadow .18s ease, transform .18s ease;
+  }
+  .nav-links a:hover{box-shadow:var(--shadow-soft); transform:translateY(-1px);}
+  .nav-admin{
+    border:none; background:var(--sand); cursor:pointer; font-family:inherit;
+    width:38px; height:38px; border-radius:12px; box-shadow:var(--shadow-soft);
+    display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
+  }
+  .nav-admin:active{box-shadow:var(--shadow-inset);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:1180px; margin:0 auto; padding:64px 28px 40px;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:center;
+  }
+  .eyebrow-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--sand-light); box-shadow:var(--shadow-soft);
+    padding:8px 16px 8px 8px; border-radius:999px; margin-bottom:22px;
+  }
+  .eyebrow-badge .dot{
+    width:30px; height:30px; border-radius:50%;
+    background:linear-gradient(145deg,#e8f0e4,#d9e6d3);
+    box-shadow:inset 2px 2px 4px rgba(95,122,90,0.25), inset -2px -2px 4px rgba(255,255,255,0.8);
+    display:flex; align-items:center; justify-content:center; font-size:14px;
+  }
+  .eyebrow-badge span{font-size:0.82rem; font-weight:700; color:var(--moss-dark);}
+  .hero h1{font-size:clamp(2.3rem, 4.4vw, 3.5rem); font-weight:600; line-height:1.06;}
+  .hero h1 em{font-style:normal; color:var(--clay-dark);}
+  .hero p.lede{
+    margin-top:18px; font-size:1.08rem; color:var(--ink-soft); max-width:52ch; line-height:1.6;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap;}
+  .btn{
+    font-family:'Nunito Sans',sans-serif; font-weight:800; font-size:0.95rem;
+    border:none; border-radius:18px; padding:15px 26px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:10px; text-decoration:none;
     transition:transform .15s ease, box-shadow .15s ease;
   }
-  .clay-btn:hover{transform:translateY(-3px);}
-  .clay-btn:active{transform:translateY(0px) scale(.98); box-shadow:var(--shadow-in);}
-  .clay-btn.secondary{background:linear-gradient(155deg, var(--forest), var(--forest-dark));}
-  .clay-btn.ghost{
-    background:var(--cream); color:var(--ink); box-shadow:var(--shadow-in);
-  }
+  .btn-primary{background:linear-gradient(145deg,#6d8c67,var(--moss)); color:var(--sand-light); box-shadow:var(--shadow-soft);}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-primary:active{box-shadow:var(--shadow-inset); transform:translateY(0);}
+  .btn-secondary{background:var(--sand); color:var(--moss-dark); box-shadow:var(--shadow-soft);}
+  .btn-secondary:hover{transform:translateY(-2px);}
+  .btn-secondary:active{box-shadow:var(--shadow-inset); transform:translateY(0);}
 
-  /* upload */
-  .category-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px;}
-  .cat-chip{
-    padding:9px 16px; border-radius:14px; font-size:13.5px; font-weight:700;
-    background:var(--cream); box-shadow:var(--shadow-in); cursor:pointer; color:var(--ink-soft);
-    border:2px solid transparent; transition:all .15s;
+  .hero-clay{
+    position:relative; aspect-ratio:1/1; border-radius:44% 56% 58% 42% / 48% 42% 58% 52%;
+    background:linear-gradient(150deg,#eef2e6,var(--sand));
+    box-shadow:var(--shadow-light);
+    display:flex; align-items:center; justify-content:center;
+    animation:blob 9s ease-in-out infinite;
   }
-  .cat-chip.active{border-color:var(--terracotta); color:var(--terracotta-dark); background:#fff8ec;}
+  @keyframes blob{
+    0%,100%{border-radius:44% 56% 58% 42% / 48% 42% 58% 52%;}
+    50%{border-radius:58% 42% 46% 54% / 44% 56% 44% 56%;}
+  }
+  .hero-clay svg{width:58%; height:58%;}
+  .float-chip{
+    position:absolute; background:var(--sand-light); box-shadow:var(--shadow-soft);
+    border-radius:16px; padding:9px 13px; display:flex; align-items:center; gap:8px;
+    font-size:0.78rem; font-weight:700; color:var(--moss-dark);
+    animation:floaty 5s ease-in-out infinite;
+  }
+  .chip-1{top:6%; left:-6%; animation-delay:0s;}
+  .chip-2{bottom:10%; right:-8%; animation-delay:1.4s;}
+  .chip-3{bottom:-4%; left:14%; animation-delay:2.6s;}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
+  /* ---------- Sections ---------- */
+  section{max-width:1180px; margin:0 auto; padding:56px 28px;}
+  .section-head{max-width:60ch; margin-bottom:34px;}
+  .section-head h2{font-size:clamp(1.6rem,2.6vw,2.2rem); font-weight:600;}
+  .section-head p{color:var(--ink-soft); margin-top:10px; line-height:1.6;}
+
+  /* Notice strip */
+  .notice{
+    max-width:1180px; margin:0 auto 0; padding:0 28px;
+  }
+  .notice-inner{
+    background:linear-gradient(145deg,#efe6d6,#e6dcc7);
+    box-shadow:var(--shadow-inset);
+    border-radius:20px; padding:18px 24px;
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .notice-inner svg{flex-shrink:0; margin-top:2px;}
+  .notice-inner p{margin:0; font-size:0.9rem; color:var(--ink-soft); line-height:1.55;}
+  .notice-inner strong{color:var(--moss-dark);}
+
+  /* Study material card */
+  .material-card{
+    background:linear-gradient(150deg,var(--sand-light),var(--sand));
+    box-shadow:var(--shadow-light);
+    border-radius:32px; padding:38px; display:flex; align-items:center; gap:30px;
+    flex-wrap:wrap; justify-content:space-between;
+  }
+  .material-left{display:flex; align-items:center; gap:20px; max-width:60ch;}
+  .material-icon{
+    width:70px; height:70px; border-radius:22px; flex-shrink:0;
+    background:linear-gradient(145deg,#d9c9a3,var(--sand));
+    box-shadow:var(--shadow-soft); display:flex; align-items:center; justify-content:center;
+  }
+  .material-left h3{font-size:1.25rem; font-weight:600;}
+  .material-left p{color:var(--ink-soft); margin-top:6px; font-size:0.92rem;}
+
+  /* Tabs for upload */
+  .tabs{display:flex; gap:10px; margin-bottom:26px; flex-wrap:wrap;}
+  .tab-btn{
+    border:none; background:var(--sand); padding:11px 20px; border-radius:16px;
+    font-family:inherit; font-weight:700; font-size:0.88rem; color:var(--ink-soft);
+    box-shadow:var(--shadow-soft); cursor:pointer; transition:all .15s ease;
+  }
+  .tab-btn.active{background:linear-gradient(145deg,#6d8c67,var(--moss)); color:var(--sand-light); box-shadow:var(--shadow-inset);}
+
+  .panel{display:none;}
+  .panel.active{display:block; animation:reveal .35s ease;}
+  @keyframes reveal{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+
+  .upload-card{
+    background:var(--sand-light); border-radius:28px; padding:32px; box-shadow:var(--shadow-light);
+  }
   .dropzone{
-    border-radius:36px;
-    border:3px dashed #c8b795;
-    background:rgba(251,246,236,.5);
-    padding:38px 20px;
-    text-align:center;
-    transition:background .2s, border-color .2s;
-    cursor:pointer;
+    border-radius:22px; box-shadow:var(--shadow-inset); padding:36px 20px;
+    text-align:center; cursor:pointer; transition:background .2s ease;
   }
-  .dropzone.dragover{background:#fbf1de; border-color:var(--terracotta);}
-  .drop-icon{margin:0 auto 12px;}
-  .dropzone h3{font-size:18px; margin-bottom:4px;}
-  .dropzone p{color:var(--ink-soft); font-size:13.5px;}
-  .drop-actions{margin-top:16px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+  .dropzone:hover{background:rgba(95,122,90,0.05);}
+  .dropzone.drag{background:rgba(95,122,90,0.1);}
+  .dropzone svg{margin:0 auto 12px;}
+  .dropzone p{color:var(--ink-soft); font-size:0.9rem; margin:4px 0 0;}
+  .dropzone strong{color:var(--moss-dark);}
 
-  .file-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:12px; margin-top:20px;}
-  .file-chip{
-    position:relative; background:var(--cream); border-radius:18px; box-shadow:var(--shadow-in);
-    padding:8px; text-align:center; font-size:11px; color:var(--ink-soft); overflow:hidden;
+  .field{margin-top:18px;}
+  .field label{display:block; font-size:0.82rem; font-weight:700; color:var(--moss-dark); margin-bottom:7px;}
+  .field input[type=text], .field input[type=url], .field textarea{
+    width:100%; border:none; border-radius:14px; padding:13px 16px;
+    background:var(--sand); box-shadow:var(--shadow-inset); font-family:inherit; font-size:0.92rem; color:var(--ink);
+    resize:vertical;
   }
-  .file-chip img{width:100%; height:64px; object-fit:cover; border-radius:12px; margin-bottom:6px;}
-  .file-chip .fname{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block;}
-  .file-chip .remove{
-    position:absolute; top:4px; right:4px; width:20px; height:20px; border-radius:50%;
-    background:var(--terracotta-dark); color:#fff; border:none; font-size:12px; cursor:pointer; line-height:1;
-  }
-  .file-doc-icon{width:100%; height:64px; border-radius:12px; margin-bottom:6px; display:flex; align-items:center; justify-content:center; background:#e9dcc3;}
+  .field input::placeholder, .field textarea::placeholder{color:#8b8b78;}
+  .check-row{display:flex; gap:10px; align-items:flex-start; margin-top:18px; font-size:0.85rem; color:var(--ink-soft);}
+  .check-row input{margin-top:3px;}
+  .form-msg{margin-top:14px; font-size:0.87rem; font-weight:700; min-height:1.2em;}
+  .form-msg.ok{color:var(--moss-dark);}
+  .form-msg.err{color:var(--clay-dark);}
 
-  .send-row{display:flex; align-items:center; gap:14px; margin-top:20px; flex-wrap:wrap;}
-  #uploadStatus{font-size:13px; color:var(--ink-soft);}
+  .preview-strip{display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;}
+  .preview-strip img{width:70px; height:70px; object-fit:cover; border-radius:14px; box-shadow:var(--shadow-soft);}
 
-  /* specimen note */
-  .note-strip{
-    display:flex; gap:12px; align-items:flex-start; margin-top:22px;
-    background:var(--cream); border-radius:20px; padding:16px 18px; box-shadow:var(--shadow-in);
+  /* Gallery */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:18px; margin-top:8px;
   }
-  .note-strip p{font-size:13px; color:var(--ink-soft);}
+  .spec-card{
+    background:var(--sand-light); border-radius:22px; padding:12px; box-shadow:var(--shadow-soft);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .spec-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-light);}
+  .spec-card img{width:100%; height:130px; object-fit:cover; border-radius:16px; margin-bottom:10px;}
+  .spec-card .cap{font-size:0.82rem; font-weight:700; color:var(--moss-dark); line-height:1.3;}
+  .spec-card .meta{font-size:0.72rem; color:var(--ink-soft); margin-top:3px;}
+  .empty-state{
+    text-align:center; padding:40px 20px; color:var(--ink-soft); font-size:0.92rem;
+    background:var(--sand-light); border-radius:22px; box-shadow:var(--shadow-inset);
+  }
 
-  /* contributors / guidelines */
-  .guideline-list{list-style:none; margin:18px 0 0; padding:0; display:grid; gap:12px;}
-  .guideline-list li{
-    display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--ink-soft);
-    background:var(--cream); border-radius:18px; padding:12px 16px; box-shadow:var(--shadow-in);
+  /* Links list */
+  .links-list{display:flex; flex-direction:column; gap:12px; margin-top:8px;}
+  .link-item{
+    background:var(--sand-light); border-radius:18px; padding:16px 20px; box-shadow:var(--shadow-soft);
+    display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
   }
-  .guideline-list li b{color:var(--ink);}
+  .link-item a.link-title{font-weight:800; color:var(--moss-dark); text-decoration:none; font-size:0.95rem;}
+  .link-item .link-meta{font-size:0.78rem; color:var(--ink-soft); margin-top:3px;}
+  .link-open{
+    background:var(--sand); box-shadow:var(--shadow-soft); border-radius:12px; padding:9px 14px;
+    font-size:0.8rem; font-weight:700; color:var(--moss-dark); text-decoration:none; white-space:nowrap;
+  }
 
-  /* footer */
-  footer{padding:38px 0 30px; text-align:center;}
-  .footer-card{
-    display:inline-flex; align-items:center; gap:10px;
-    background:var(--card); border-radius:999px; padding:10px 20px;
-    box-shadow:var(--shadow-d); font-size:13px; color:var(--ink-soft);
+  /* Visitor counter */
+  .counter-strip{
+    display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap;
   }
-  .footer-card b{color:var(--ink);}
-  .admin-gear{
-    position:fixed; bottom:18px; right:18px; width:42px; height:42px; border-radius:50%;
-    background:var(--card); box-shadow:var(--shadow-d); border:none; cursor:pointer;
-    display:flex; align-items:center; justify-content:center; z-index:50; opacity:.55; transition:opacity .2s;
+  .counter-clay{
+    width:150px; height:150px; border-radius:50%;
+    background:linear-gradient(150deg,var(--sand-light),var(--sand));
+    box-shadow:var(--shadow-light);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
   }
-  .admin-gear:hover{opacity:1;}
+  .counter-clay .num{font-family:'Fraunces',serif; font-size:2.1rem; font-weight:700; color:var(--moss-dark);}
+  .counter-clay .lbl{font-size:0.72rem; color:var(--ink-soft); font-weight:700; margin-top:2px;}
+  .counter-note{max-width:34ch; color:var(--ink-soft); font-size:0.92rem; line-height:1.6;}
 
-  /* modal */
-  .modal-overlay{
-    position:fixed; inset:0; background:rgba(58,44,29,.45); backdrop-filter:blur(2px);
+  /* Footer */
+  footer{
+    max-width:1180px; margin:20px auto 0; padding:34px 28px 44px;
+    display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+    border-top:1px solid rgba(95,122,90,0.15);
+  }
+  footer .foot-left p{margin:0; font-size:0.82rem; color:var(--ink-soft); line-height:1.6;}
+  footer .foot-left strong{color:var(--moss-dark);}
+  .foot-credit{font-size:0.82rem; color:var(--ink-soft); text-align:right;}
+  .foot-credit strong{color:var(--clay-dark); font-family:'Fraunces',serif; font-size:0.95rem;}
+
+  /* Admin modal */
+  .modal-backdrop{
+    position:fixed; inset:0; background:rgba(51,54,46,0.45); backdrop-filter:blur(3px);
     display:none; align-items:center; justify-content:center; z-index:100; padding:20px;
   }
-  .modal-overlay.show{display:flex;}
+  .modal-backdrop.open{display:flex;}
   .modal{
-    background:var(--cream); border-radius:28px; padding:28px; max-width:360px; width:100%;
-    box-shadow:var(--shadow-d-lg); text-align:center;
+    background:var(--sand-light); border-radius:26px; padding:30px; max-width:480px; width:100%;
+    box-shadow:var(--shadow-light); max-height:82vh; overflow-y:auto;
   }
-  .modal h3{margin-bottom:8px;}
-  .modal p{color:var(--ink-soft); font-size:13.5px; margin-bottom:16px;}
-  .modal input{
-    width:100%; padding:12px 14px; border-radius:14px; border:2px solid #d8c8a4;
-    font-size:14px; margin-bottom:14px; background:#fff; font-family:'Manrope',sans-serif;
+  .modal h3{font-size:1.2rem; margin-bottom:6px;}
+  .modal p.small{font-size:0.83rem; color:var(--ink-soft); margin-bottom:16px;}
+  .modal-close{
+    float:right; border:none; background:var(--sand); width:32px; height:32px; border-radius:10px;
+    box-shadow:var(--shadow-soft); cursor:pointer; color:var(--ink-soft);
   }
-  .modal-actions{display:flex; gap:10px; justify-content:center;}
-  .modal .err{color:var(--terracotta-dark); font-size:12.5px; margin-top:-6px; margin-bottom:10px; display:none;}
+  .admin-item{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid rgba(95,122,90,0.12); font-size:0.85rem;}
+  .admin-item:last-child{border-bottom:none;}
+  .del-btn{border:none; background:#f0dbd0; color:var(--clay-dark); font-weight:800; font-size:0.75rem; border-radius:10px; padding:7px 11px; cursor:pointer;}
 
   .toast{
     position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
-    background:var(--ink); color:var(--cream); padding:12px 22px; border-radius:16px;
-    font-size:13.5px; opacity:0; transition:all .3s ease; z-index:200; pointer-events:none;
+    background:var(--moss-dark); color:var(--sand-light); padding:13px 22px; border-radius:16px;
+    font-size:0.85rem; font-weight:700; box-shadow:var(--shadow-light);
+    opacity:0; pointer-events:none; transition:all .3s ease; z-index:200;
   }
   .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
 
-  [contenteditable="true"]{outline:2px dashed var(--terracotta); outline-offset:4px; border-radius:8px;}
-  .edit-banner{
-    position:fixed; top:0; left:0; right:0; background:var(--terracotta-dark); color:#fff;
-    text-align:center; font-size:13px; padding:8px; z-index:80; display:none;
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr; padding-top:40px;}
+    .hero-clay{max-width:280px; margin:0 auto;}
+    footer{flex-direction:column; align-items:flex-start;}
+    .foot-credit{text-align:left;}
   }
-  .edit-banner.show{display:block;}
-
   @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    .clay-btn{transition:none;}
+    *{animation:none !important; transition:none !important;}
   }
 </style>
 </head>
 <body>
 
-<div class="bg-blob b1"></div>
-<div class="bg-blob b2"></div>
-<div class="bg-blob b3"></div>
-<div class="edit-banner" id="editBanner">Edit mode is on — click any text to change it, then use Download Site to save your version.</div>
+<div class="bg-watermark"><span>DEPARTMENT OF ZOOLOGY &nbsp;·&nbsp; BHU</span></div>
+<div class="bg-layer" id="bgLayer"></div>
 
-<div class="wrap">
-
-  <nav class="topbar">
+<header>
+  <nav>
     <div class="brand">
-      <svg class="logo-blob" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#4b6e45"/>
-            <stop offset="100%" stop-color="#2c4128"/>
-          </linearGradient>
-        </defs>
-        <path fill="url(#logoGrad)" d="M50 6C68 6 90 22 92 44C94 66 76 92 50 94C24 92 6 70 8 48C10 24 32 6 50 6Z"/>
-        <path d="M32 55C36 40 48 30 62 32C60 46 66 58 58 66C48 74 34 68 32 55Z" fill="#C1683D" opacity="0.9"/>
-        <circle cx="66" cy="34" r="4.5" fill="#FBF6EC"/>
-        <path d="M30 62C34 70 44 75 52 73" stroke="#FBF6EC" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-      </svg>
+      <div class="brand-badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 6 5 10c0 4 2 6 2 8 0 1.5 1 2 2 2h6c1 0 2-.5 2-2 0-2 2-4 2-8 0-4-3-8-7-8z" stroke="#5F7A5A" stroke-width="1.6"/><circle cx="9.5" cy="10" r="1" fill="#5F7A5A"/><circle cx="14.5" cy="10" r="1" fill="#5F7A5A"/></svg>
+      </div>
       <div class="brand-text">
-        <div class="eyebrow">Banaras Hindu University</div>
-        <div class="title">Dept. of Zoology</div>
+        <strong>Zoology, BHU</strong>
+        <small>Student resource hub</small>
       </div>
     </div>
     <div class="nav-links">
-      <a href="#material">Study Material</a>
+      <a href="#material">Study material</a>
       <a href="#upload">Contribute</a>
-      <a href="#guidelines">Guidelines</a>
+      <a href="#gallery">Specimen gallery</a>
+      <a href="#about">About</a>
+      <button class="nav-admin" id="adminOpenBtn" title="Owner access">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.7"/></svg>
+      </button>
     </div>
   </nav>
+</header>
 
-  <header class="hero">
-    <div class="dept-line">DEPARTMENT OF ZOOLOGY</div>
-    <div class="zoology-badge">
-      <svg class="arc" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 50 C 100 -5, 300 -5, 380 50" stroke="#C1683D" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.55"/>
-      </svg>
-      <h1 class="zoology-word" contenteditable="false">ZOOLOGY</h1>
+<div class="hero">
+  <div>
+    <div class="eyebrow-badge">
+      <span class="dot">🐾</span>
+      <span>Built by a zoology student, for zoology students</span>
     </div>
-    <div class="university-line">Banaras Hindu University <span>· Varanasi</span></div>
-
-    <div class="hero-pills">
-      <div class="pill"><span class="dot"></span> <span id="visitCount">–</span> visits</div>
-      <div class="pill piracy">⚠ No unauthorised reuse — for BHU students only</div>
-    </div>
-  </header>
-
-  <section id="about">
-    <div class="clay-card organic about-grid">
-      <div>
-        <h2 contenteditable="false">A shared shelf for the department</h2>
-        <p contenteditable="false">This page holds lecture notes, practicals, and specimen references for zoology students at BHU, and gives every student a way to add their own notes back to the shelf — so the collection keeps growing each semester.</p>
-        <div class="stat-strip">
-          <div class="stat"><b id="statVisits">–</b><span>Visits</span></div>
-          <div class="stat"><b id="statUploads">0</b><span>Shared this session</span></div>
-          <div class="stat"><b>B.Sc–Ph.D</b><span>All levels</span></div>
-        </div>
-      </div>
-      <div class="about-figure">
-        <svg width="180" height="180" viewBox="0 0 200 200">
-          <ellipse cx="100" cy="150" rx="70" ry="14" fill="#00000012"/>
-          <path d="M100 30C130 30 155 55 158 90C161 130 130 170 100 172C70 170 42 132 44 92C46 56 70 30 100 30Z" fill="#3F5C3A"/>
-          <path d="M70 90C90 70 120 70 132 88C126 112 108 128 88 122C72 117 64 104 70 90Z" fill="#D9A441" opacity="0.9"/>
-          <circle cx="126" cy="82" r="6" fill="#FBF6EC"/>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <section id="material">
-    <div class="section-head">
-      <h2 contenteditable="false">Study material</h2>
-      <p contenteditable="false">Notes, practicals and reference readings, kept in one shared folder.</p>
-    </div>
-    <div class="clay-card material-card">
-      <div class="material-icon">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M4 4h11l5 5v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" fill="#FBF6EC" opacity="0.9"/><path d="M15 4v5h5" stroke="#3F5C3A" stroke-width="1.4"/><path d="M7 12h9M7 15h9M7 18h5" stroke="#3F5C3A" stroke-width="1.4" stroke-linecap="round"/></svg>
-      </div>
-      <div class="material-text">
-        <h3 contenteditable="false">Department drive folder</h3>
-        <p contenteditable="false">Everything currently on record — organised by semester and paper. Opens in a new tab.</p>
-      </div>
-      <a href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU" target="_blank" rel="noopener">
-        <button class="clay-btn">Open study material</button>
+    <h1>Everything the <em>class</em> collects,<br>kept in one place.</h1>
+    <p class="lede">Notes, dissection guides, past papers and specimen photos from the Department of Zoology, Banaras Hindu University — shared by students, for students. Add what you have, take what you need.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Open study material
+      </a>
+      <a class="btn btn-secondary" href="#upload">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21V9m0 0l-4 4m4-4l4 4M5 3h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Contribute material
       </a>
     </div>
-  </section>
-
-  <section id="upload">
-    <div class="section-head">
-      <h2 contenteditable="false">Add your own notes</h2>
-      <p contenteditable="false">Notes, scanned pages, or specimen photographs — pick a category, then choose or drop your files.</p>
-    </div>
-    <div class="clay-card">
-      <div class="category-row" id="categoryRow">
-        <div class="cat-chip active" data-cat="Notes">Lecture notes</div>
-        <div class="cat-chip" data-cat="Practical">Practical / lab record</div>
-        <div class="cat-chip" data-cat="Specimen">Specimen photograph</div>
-        <div class="cat-chip" data-cat="Other">Other reference</div>
-      </div>
-
-      <div class="dropzone" id="dropzone">
-        <svg class="drop-icon" width="46" height="46" viewBox="0 0 24 24" fill="none"><path d="M12 3v12M12 3l-4 4M12 3l4 4" stroke="#C1683D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" stroke="#6B5A46" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <h3>Drop files here</h3>
-        <p>or tap below to choose from your device — photos, scans and gallery images are all fine</p>
-        <div class="drop-actions">
-          <button class="clay-btn" id="chooseFileBtn" type="button">Choose files / photos</button>
-        </div>
-        <input type="file" id="fileInput" multiple accept="image/*,application/pdf,.doc,.docx,.ppt,.pptx" style="display:none">
-      </div>
-
-      <div class="file-grid" id="fileGrid"></div>
-
-      <div class="send-row">
-        <button class="clay-btn secondary" id="sendBtn" type="button">Share with the department</button>
-        <span id="uploadStatus"></span>
-      </div>
-
-      <div class="note-strip">
-        <span>🔒</span>
-        <p contenteditable="false">Files you share here are added for classmates and the department — please don't upload material you don't have the right to share, and keep specimen photos to your own lab work.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="guidelines">
-    <div class="section-head">
-      <h2 contenteditable="false">Before you upload</h2>
-    </div>
-    <div class="clay-card">
-      <ul class="guideline-list">
-        <li>🧾 <span><b>Name your files clearly</b> — e.g. "Cell Biology Unit 3 – Notes.pdf" helps others find it fast.</span></li>
-        <li>🔬 <span><b>Specimen photos</b> should be your own dissection or lab work, in focus, with the paper/practical noted in the filename.</span></li>
-        <li>🚫 <span><b>No copyrighted textbooks or scans of paid material</b> — this shelf is for original student notes and department resources only.</span></li>
-        <li>🤝 <span><b>One folder, everyone's notes</b> — check the drive first so we don't end up with duplicates.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-card">🌿 <span>Developed by <b>Vikramaditya</b></span></div>
-  </footer>
-</div>
-
-<button class="admin-gear" id="adminGear" title="Site settings">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="#6B5A46" stroke-width="1.6"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.5-2-3.4-2.3.9a7.5 7.5 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.5 7.5 0 0 0-1.7 1l-2.3-.9-2 3.4L6.6 11a7.6 7.6 0 0 0 0 2l-2 1.5 2 3.4 2.3-.9c.5.4 1.1.8 1.7 1L11 21h4l.4-2.9c.6-.2 1.2-.6 1.7-1l2.3.9 2-3.4-2-1.6Z" stroke="#6B5A46" stroke-width="1.3"/></svg>
-</button>
-
-<div class="modal-overlay" id="adminModal">
-  <div class="modal">
-    <h3>Owner access</h3>
-    <p>Enter the site password to edit or update the page content.</p>
-    <input type="password" id="adminPw" placeholder="Password">
-    <p class="err" id="adminErr">That password isn't right — try again.</p>
-    <div class="modal-actions">
-      <button class="clay-btn ghost" id="adminCancel" type="button">Cancel</button>
-      <button class="clay-btn" id="adminSubmit" type="button">Unlock</button>
-    </div>
+  </div>
+  <div class="hero-clay">
+    <svg viewBox="0 0 100 100" fill="none">
+      <path d="M50 15c-16 0-28 13-28 27 0 10 5 15 6 19 1 3 3 5 6 5h32c3 0 5-2 6-5 1-4 6-9 6-19 0-14-12-27-28-27z" stroke="#5F7A5A" stroke-width="2.2"/>
+      <circle cx="41" cy="42" r="2.4" fill="#5F7A5A"/>
+      <circle cx="59" cy="42" r="2.4" fill="#5F7A5A"/>
+      <path d="M40 55c4 3 16 3 20 0" stroke="#5F7A5A" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <div class="float-chip chip-1">📎 Notes</div>
+    <div class="float-chip chip-2">🔬 Specimens</div>
+    <div class="float-chip chip-3">📄 Past papers</div>
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="notice">
+  <div class="notice-inner">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.7 3.86a2 2 0 00-3.4 0z" stroke="#A85F3F" stroke-width="1.8"/></svg>
+    <p><strong>Please share responsibly.</strong> Only upload material you've written yourself, your own specimen photos, or notes you have permission to pass on. Don't upload scanned textbooks, publisher content, or anything you don't hold the rights to share — this keeps the hub usable for everyone and respects the original authors' work.</p>
+  </div>
+</div>
 
-<script>
-/* ================= CONFIG =================
-   Fill APPS_SCRIPT_URL after deploying the Google Apps Script
-   (see apps-script-setup.md) to let uploads save straight into
-   the Drive folder. Until then, the upload button opens the
-   shared folder so students can drop files in directly.       */
-const APPS_SCRIPT_URL = "";
-const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU";
-const ADMIN_PW_HASH = "dbb3c2011977412afb463840c5357d7eaca991af24a61f4e6bcc72fe7a60300e";
-/* default password: Vikram@Zoology2026 — change by replacing
-   this string with the SHA-256 hash of your new password.     */
-/* ============================================ */
+<section id="material">
+  <div class="section-head">
+    <h2>Departmental study material</h2>
+    <p>The shared drive below holds notes and references organised by the department's students. Anyone with the link can view; ask a contributor if you'd like edit access.</p>
+  </div>
+  <div class="material-card">
+    <div class="material-left">
+      <div class="material-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 8l10 6 10-6-10-6z" stroke="#3E5238" stroke-width="1.6" stroke-linejoin="round"/><path d="M2 8v9c0 1 4.5 4 10 4s10-3 10-4V8" stroke="#3E5238" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <h3>Zoology Study Drive</h3>
+        <p>Lecture notes, lab manuals, dissection references and previous years' papers, organised by semester.</p>
+      </div>
+    </div>
+    <a class="btn btn-primary" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU" target="_blank" rel="noopener noreferrer">
+      Open in Drive
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
 
-function toast(msg, ms=2600){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(t._h);
-  t._h = setTimeout(()=>t.classList.remove('show'), ms);
-}
-
-/* ---------- visitor counter ---------- */
-(function initCounter(){
-  const el = document.getElementById('visitCount');
-  const statEl = document.getElementById('statVisits');
-  function render(n){
-    el.textContent = n.toLocaleString();
-    statEl.textContent = n.toLocaleString();
-  }
-  fetch('https://api.countapi.xyz/hit/bhu-zoology-dept/visits')
-    .then(r=>r.json())
-    .then(d=>render(d.value))
-    .catch(()=>{
-      let n = parseInt(localStorage.getItem('zooVisits')||'0',10) + 1;
-      localStorage.setItem('zooVisits', n);
-      render(n);
-    });
-})();
-
-/* ---------- category chips ---------- */
-let activeCategory = "Notes";
-document.getElementById('categoryRow').addEventListener('click', e=>{
-  const chip = e.target.closest('.cat-chip');
-  if(!chip) return;
-  document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));
-  chip.classList.add('active');
-  activeCategory = chip.dataset.cat;
-});
-
-/* ---------- upload / drag & drop ---------- */
-const dropzone = document.getElementById('dropzone');
-const fileInput = document.getElementById('fileInput');
-const fileGrid = document.getElementById('fileGrid');
-const chooseBtn = document.getElementById('chooseFileBtn');
-const sendBtn = document.getElementById('sendBtn');
-const statusEl = document.getElementById('uploadStatus');
-const statUploads = document.getElementById('statUploads');
-let queue = [];
-let sharedCount = 0;
-
-chooseBtn.addEventListener('click', ()=> fileInput.click());
-dropzone.addEventListener('click', (e)=>{ if(e.target===dropzone) fileInput.click(); });
-
-fileInput.addEventListener('change', e => addFiles(e.target.files));
-
-['dragenter','dragover'].forEach(ev=>{
-  dropzone.addEventListener(ev, e=>{ e.preventDefault(); e.stopPropagation(); dropzone.classList.add('dragover'); });
-});
-['dragleave','drop'].forEach(ev=>{
-  dropzone.addEventListener(ev, e=>{ e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('dragover'); });
-});
-dropzone.addEventListener('drop', e=>{
-  const dt = e.dataTransfer;
-  if(dt && dt.files && dt.files.length) addFiles(dt.files);
-});
-
-function addFiles(fileList){
-  Array.from(fileList).forEach(f=>{
-    queue.push(f);
-    renderChip(f, queue.length-1);
-  });
-}
-
-function renderChip(file, idx){
-  const chip = document.createElement('div');
-  chip.className = 'file-chip';
-  chip.dataset.idx = idx;
-
-  const removeBtn = document.createElement('button');
-  removeBtn.className = 'remove';
-  removeBtn.textContent = '×';
-  removeBtn.onclick = ()=>{ queue[idx] = null; chip.remove(); };
-
-  if(file.type.startsWith('image/')){
-    const img = document.createElement('img');
-    const reader = new FileReader();
-    reader.onload = ev => img.src = ev.target.result;
-    reader.readAsDataURL(file);
-    chip.appendChild(img);
-  } else {
-    const icon = document.createElement('div');
-    icon.className = 'file-doc-icon';
-    icon.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 4h11l5 5v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" fill="#C1683D" opacity="0.85"/><path d="M15 4v5h5" stroke="#fff" stroke-width="1.3"/></svg>';
-    chip.appendChild(icon);
-  }
-  const name = document.createElement('span');
-  name.className = 'fname';
-  name.textContent = file.name;
-  chip.appendChild(name);
-  chip.appendChild(removeBtn);
-  fileGrid.appendChild(chip);
-}
-
-async function fileToBase64(file){
-  return new Promise((resolve, reject)=>{
-    const r = new FileReader();
-    r.onload = () => resolve(r.result.split(',')[1]);
-    r.onerror = reject;
-    r.readAsDataURL(file);
-  });
-}
-
-sendBtn.addEventListener('click', async ()=>{
-  const files = queue.filter(Boolean);
-  if(files.length === 0){
-    toast("Choose or drop a file first");
-    return;
-  }
-
-  if(!APPS_SCRIPT_URL){
-    // No backend configured yet — the reliable path is the shared Drive folder itself.
-    window.open(DRIVE_FOLDER_URL, '_blank', 'noopener');
-    toast("Opening the shared folder — drop your file in there to add it");
-    return;
-  }
-
-  statusEl.textContent = "Sending " + files.length + " file(s)...";
-  sendBtn.disabled = true;
-  let ok = 0;
-  for(const file of files){
-    try{
-      const base64 = await fileToBase64(file);
-      const res = await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({
-          filename: file.name,
-          mimeType: file.type || 'application/octet-stream',
-          category: activeCategory,
-          data: base64
-        })
-      });
-      if(res.ok){ ok++; }
-    }catch(err){ /* continue with remaining files */ }
-  }
-  sendBtn.disabled = false;
-  statusEl.textContent = ok === files.length
-    ? "All files shared — thank you!"
-    : ok + " of " + files.length + " uploaded, the rest may need a retry.";
-  if(ok>0){
-    sharedCount += ok;
-    statUploads.textContent = sharedCount;
-    queue = []; fileGrid.innerHTML = '';
-    toast("Thanks for contributing to the department shelf");
-  }
-});
-
-/* ---------- admin / edit lock ---------- */
-async function sha256(text){
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
-
-const adminModal = document.getElementById('adminModal');
-const adminPw = document.getElementById('adminPw');
-const adminErr = document.getElementById('adminErr');
-let editMode = false;
-
-document.getElementById('adminGear').addEventListener('click', ()=>{
-  if(editMode){
-    setEditMode(false);
-    return;
-  }
-  adminModal.classList.add('show');
-  adminPw.value=''; adminErr.style.display='none';
-  adminPw.focus();
-});
-document.getElementById('adminCancel').addEventListener('click', ()=> adminModal.classList.remove('show'));
-document.getElementById('adminSubmit').addEventListener('click', tryUnlock);
-adminPw.addEventListener('keydown', e=>{ if(e.key==='Enter') tryUnlock(); });
-
-async function tryUnlock(){
-  const hash = await sha256(adminPw.value);
-  if(hash === ADMIN_PW_HASH){
-    adminModal.classList.remove('show');
-    setEditMode(true);
-    toast("Edit mode on — click text to change it");
-  } else {
-    adminErr.style.display='block';
-  }
-}
-
-function setEditMode(on){
-  editMode = on;
-  document.querySelectorAll('[contenteditable]').forEach(el=> el.setAttribute('contenteditable', on ? 'true' : 'false'));
-  document.getElementById('editBanner').classList.toggle('show', on);
-  if(on && !document.getElementById('downloadSiteBtn')){
-    const btn = document.createElement('button');
-    btn.id = 'downloadSiteBtn';
-    btn.className = 'clay-btn';
-    btn.textContent = 'Download edited site';
-    btn.style.position = 'fixed';
-    btn.style.bottom = '18px';
-    btn.style.right = '70px';
-    btn.style.zIndex = '90';
-    btn.onclick = downloadSite;
-    document.body.appendChild(btn);
-  }
-}
-
-function downloadSite(){
-  const html = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-  const blob = new Blob([html], {type:'text/html'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'zoology-bhu-site.html';
-  a.click();
-}
-</script>
-</body>
-</html>
+<section id="upload">
+  <div class="section-head">
+    <h2>Add your own material</h2>
+    <p>Upload a specimen photo directly, or share a link to notes and documents too large to attach here. E
