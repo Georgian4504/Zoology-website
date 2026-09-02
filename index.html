@@ -949,8 +949,10 @@
       msg.className = 'form-msg ok';
       loadContributions();
     } catch (err) {
-      msg.textContent = 'Something went wrong — please try again.';
-      msg.className = 'form-msg err';
+  alert(err.message);
+  console.error(err);
+  msg.textContent = err.message;
+  msg.className = 'form-msg err';
     } finally {
       submitBtn.disabled = false;
     }
