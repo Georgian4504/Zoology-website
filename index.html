@@ -890,7 +890,7 @@
 
   // ---- Submit new contribution (file upload or link) ----
   document.getElementById('contrib-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+    e.preventDefault();alert("Submit clicked");
     const msg = document.getElementById('form-msg');
     const submitBtn = document.getElementById('submit-btn');
     const title = document.getElementById('c-title').value.trim();
