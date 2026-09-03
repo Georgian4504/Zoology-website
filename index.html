@@ -21,44 +21,21 @@
     --shadow-dark: rgba(35,52,32,0.28);
     --shadow-light: rgba(255,255,255,0.65);
   }
-
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
-    background:var(--sage);
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    line-height:1.6;
-    overflow-x:hidden;
-    position:relative;
+    margin:0; background:var(--sage); color:var(--ink);
+    font-family:'Work Sans', sans-serif; line-height:1.6;
+    overflow-x:hidden; position:relative;
   }
-  h1,h2,h3,.display{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    color:var(--ink);
-    margin:0;
-  }
-  a{color:inherit;}
-  ::selection{background:var(--clay-rust); color:var(--parchment);}
+  h1,h2,h3,.display{ font-family:'Fraunces', serif; font-weight:600; color:var(--ink); margin:0; }
+  a{ color:inherit; }
+  ::selection{ background:var(--clay-rust); color:var(--parchment); }
 
-  .watermark{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    overflow:hidden;
-    pointer-events:none;
-    user-select:none;
-  }
+  .watermark{ position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; user-select:none; }
   .watermark span{
-    position:absolute;
-    white-space:nowrap;
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:9vw;
-    color:var(--ink);
-    opacity:0.045;
-    transform:rotate(-18deg);
+    position:absolute; white-space:nowrap; font-family:'Fraunces', serif; font-weight:600;
+    font-size:9vw; color:var(--ink); opacity:0.045; transform:rotate(-18deg);
   }
   .watermark span:nth-child(1){ top:6%; left:-15%; }
   .watermark span:nth-child(2){ top:32%; left:-25%; }
@@ -67,162 +44,54 @@
 
   main, header, footer{ position:relative; z-index:1; }
 
-  header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:26px 6vw;
-  }
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.15rem;
-  }
+  header{ display:flex; align-items:center; justify-content:space-between; padding:26px 6vw; }
+  .brand{ display:flex; align-items:center; gap:12px; font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; }
   .brand-mark{
-    width:42px;height:42px;
-    border-radius:50% 45% 55% 50% / 50% 55% 45% 50%;
-    background:var(--clay-rust);
+    width:42px;height:42px; border-radius:50% 45% 55% 50% / 50% 55% 45% 50%; background:var(--clay-rust);
     box-shadow: 5px 5px 10px var(--shadow-dark), -3px -3px 8px var(--shadow-light);
     display:flex;align-items:center;justify-content:center;
   }
   .brand-mark svg{ width:22px; height:22px; }
-  nav.links{
-    display:flex; gap:28px;
-    font-size:0.95rem;
-    color:var(--ink-soft);
-  }
-  nav.links a{
-    text-decoration:none;
-    padding:6px 2px;
-    border-bottom:2px solid transparent;
-    transition:border-color .2s ease, color .2s ease;
-  }
+  nav.links{ display:flex; gap:28px; font-size:0.95rem; color:var(--ink-soft); }
+  nav.links a{ text-decoration:none; padding:6px 2px; border-bottom:2px solid transparent; transition:border-color .2s ease, color .2s ease; }
   nav.links a:hover{ border-color:var(--clay-rust); color:var(--ink); }
 
-  .hero{
-    position:relative;
-    padding:6vh 6vw 10vh;
-    display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:40px;
-    align-items:center;
-  }
-  .blob{
-    position:absolute;
-    border-radius:58% 42% 63% 37% / 45% 55% 45% 55%;
-    z-index:-1;
-  }
-  .blob-1{
-    width:230px;height:230px;
-    top:-2%; right:1%;
-    background:linear-gradient(145deg, var(--clay-putty), var(--sage-deep));
-    opacity:0.85;
-    animation:drift 22s ease-in-out infinite alternate;
-  }
-  .blob-2{
-    width:220px;height:220px;
-    bottom:-10%; left:38%;
-    background:linear-gradient(145deg, var(--dusty-blue), var(--sage-deep));
-    opacity:0.55;
-    animation:drift2 26s ease-in-out infinite alternate;
-  }
-  @keyframes drift{
-    0%{ transform:translate(0,0) rotate(0deg) scale(1); }
-    100%{ transform:translate(-16px,18px) rotate(6deg) scale(1.03); }
-  }
-  @keyframes drift2{
-    0%{ transform:translate(0,0) rotate(0deg); }
-    100%{ transform:translate(18px,-20px) rotate(-10deg); }
-  }
-  .eyebrow-text{
-    font-size:1.02rem;
-    color:var(--ink-soft);
-    max-width:46ch;
-  }
-  .hero h1{
-    font-size:clamp(2.6rem, 5.4vw, 4.4rem);
-    line-height:1.04;
-    margin:10px 0 18px;
-  }
-  .hero h1 em{
-    font-style:italic;
-    color:var(--clay-rust-dark);
-  }
-  .hero p.lede{
-    max-width:52ch;
-    color:var(--ink-soft);
-    font-size:1.08rem;
-    margin-bottom:30px;
-  }
+  .hero{ position:relative; padding:6vh 6vw 10vh; display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:center; }
+  .blob{ position:absolute; border-radius:58% 42% 63% 37% / 45% 55% 45% 55%; z-index:-1; }
+  .blob-1{ width:230px;height:230px; top:-2%; right:1%; background:linear-gradient(145deg, var(--clay-putty), var(--sage-deep)); opacity:0.85; animation:drift 22s ease-in-out infinite alternate; }
+  .blob-2{ width:220px;height:220px; bottom:-10%; left:38%; background:linear-gradient(145deg, var(--dusty-blue), var(--sage-deep)); opacity:0.55; animation:drift2 26s ease-in-out infinite alternate; }
+  @keyframes drift{ 0%{ transform:translate(0,0) rotate(0deg) scale(1); } 100%{ transform:translate(-16px,18px) rotate(6deg) scale(1.03); } }
+  @keyframes drift2{ 0%{ transform:translate(0,0) rotate(0deg); } 100%{ transform:translate(18px,-20px) rotate(-10deg); } }
+  .eyebrow-text{ font-size:1.02rem; color:var(--ink-soft); max-width:46ch; }
+  .hero h1{ font-size:clamp(2.6rem, 5.4vw, 4.4rem); line-height:1.04; margin:10px 0 18px; }
+  .hero h1 em{ font-style:italic; color:var(--clay-rust-dark); }
+  .hero p.lede{ max-width:52ch; color:var(--ink-soft); font-size:1.08rem; margin-bottom:30px; }
   .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
 
   .clay-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-family:'Work Sans', sans-serif;
-    font-weight:600;
-    font-size:1rem;
-    padding:15px 26px;
-    border-radius:999px;
-    border:none;
-    cursor:pointer;
-    text-decoration:none;
-    background:var(--clay-rust);
-    color:var(--parchment);
+    display:inline-flex; align-items:center; gap:10px; font-family:'Work Sans', sans-serif; font-weight:600;
+    font-size:1rem; padding:15px 26px; border-radius:999px; border:none; cursor:pointer; text-decoration:none;
+    background:var(--clay-rust); color:var(--parchment);
     box-shadow: 7px 7px 14px var(--shadow-dark), -5px -5px 12px var(--shadow-light);
     transition: transform .15s ease, box-shadow .15s ease;
   }
-  .clay-btn.secondary{
-    background:var(--parchment);
-    color:var(--ink);
-  }
-  .clay-btn.small{
-    padding:10px 18px;
-    font-size:0.88rem;
-  }
+  .clay-btn.secondary{ background:var(--parchment); color:var(--ink); }
+  .clay-btn.small{ padding:10px 18px; font-size:0.88rem; }
   .clay-btn:hover{ transform:translateY(-2px); }
-  .clay-btn:active{
-    transform:translateY(2px) scale(.97);
-    box-shadow: 3px 3px 8px var(--shadow-dark), -2px -2px 6px var(--shadow-light);
-  }
+  .clay-btn:active{ transform:translateY(2px) scale(.97); box-shadow: 3px 3px 8px var(--shadow-dark), -2px -2px 6px var(--shadow-light); }
   .clay-btn:disabled{ opacity:0.55; cursor:not-allowed; transform:none; }
 
   .counter-card{
-    justify-self:end;
-    background:var(--parchment);
-    border-radius:32px;
-    padding:22px 26px;
-    width:min(260px, 100%);
-    box-shadow: 8px 8px 18px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
-    text-align:center;
+    justify-self:end; background:var(--parchment); border-radius:32px; padding:22px 26px; width:min(260px, 100%);
+    box-shadow: 8px 8px 18px var(--shadow-dark), -6px -6px 14px var(--shadow-light); text-align:center;
   }
-  .counter-card .label{
-    font-size:0.82rem;
-    color:var(--ink-soft);
-    margin-bottom:6px;
-  }
-  .counter-card .num{
-    font-family:'Fraunces', serif;
-    font-size:2.6rem;
-    font-weight:600;
-    color:var(--clay-rust-dark);
-  }
+  .counter-card .label{ font-size:0.82rem; color:var(--ink-soft); margin-bottom:6px; }
+  .counter-card .num{ font-family:'Fraunces', serif; font-size:2.6rem; font-weight:600; color:var(--clay-rust-dark); }
   .counter-card .paws{ margin-top:8px; opacity:0.6; }
 
   .banner{
-    margin:0 6vw 6vh;
-    background:var(--ink);
-    color:var(--parchment);
-    border-radius:26px;
-    padding:22px 30px;
-    display:flex;
-    align-items:center;
-    gap:16px;
-    box-shadow: 8px 8px 16px var(--shadow-dark);
+    margin:0 6vw 6vh; background:var(--ink); color:var(--parchment); border-radius:26px; padding:22px 30px;
+    display:flex; align-items:center; gap:16px; box-shadow: 8px 8px 16px var(--shadow-dark);
   }
   .banner svg{ flex-shrink:0; width:30px; height:30px; }
   .banner p{ margin:0; font-size:0.98rem; color:#e7e2cf; }
@@ -234,300 +103,109 @@
   .section-head p{ color:var(--ink-soft); }
 
   .note-card{
-    background:var(--parchment);
-    border-radius:26px;
-    padding:28px 32px;
+    background:var(--parchment); border-radius:26px; padding:28px 32px;
     box-shadow: 6px 6px 14px var(--shadow-dark), -4px -4px 10px var(--shadow-light);
-    max-width:62ch;
-    margin-bottom:44px;
-    font-size:0.98rem;
-    color:var(--ink-soft);
+    max-width:62ch; margin-bottom:44px; font-size:0.98rem; color:var(--ink-soft);
   }
-  .note-card .sign{
-    display:block;
-    margin-top:10px;
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    color:var(--ink);
-  }
+  .note-card .sign{ display:block; margin-top:10px; font-family:'Fraunces', serif; font-style:italic; color:var(--ink); }
 
-  .shelf-list{
-    display:flex;
-    flex-direction:column;
-    gap:22px;
+  /* Topic chips (browse by topic — click to filter the shelf, not a dead link) */
+  .topic-grid{ display:flex; flex-wrap:wrap; gap:14px; }
+  .topic-chip{
+    background:var(--parchment); border:none; padding:14px 22px; border-radius:999px; font-size:0.95rem;
+    font-family:'Work Sans', sans-serif; color:var(--ink); cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+    box-shadow: 5px 5px 10px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
   }
-  .shelf-card{
-    background:var(--parchment);
-    border-radius:26px;
-    padding:30px 32px;
-    text-decoration:none;
-    color:var(--ink);
-    display:block;
-    border-top:5px solid var(--ink);
-    box-shadow: 7px 7px 16px var(--shadow-dark), -5px -5px 12px var(--shadow-light);
-    transition: transform .18s ease, box-shadow .18s ease;
+  .topic-chip .count{
+    background:var(--sage); color:var(--ink-soft); font-size:0.76rem; padding:2px 9px; border-radius:999px;
   }
-  .shelf-card:hover{ transform:translateY(-3px); }
-  .shelf-card:active{
-    transform:translateY(1px) scale(.99);
-    box-shadow: 3px 3px 9px var(--shadow-dark), -2px -2px 7px var(--shadow-light);
-  }
-  .shelf-card.tone-green{ border-top-color:#5c7a4e; }
-  .shelf-card.tone-rust{ border-top-color:var(--clay-rust); }
-  .shelf-card.tone-blue{ border-top-color:var(--dusty-blue); }
-  .shelf-icon{
-    width:46px; height:46px;
-    border-radius:14px;
-    background:var(--sage);
-    display:flex; align-items:center; justify-content:center;
-    margin-bottom:18px;
-  }
-  .shelf-icon svg{ width:22px; height:22px; opacity:0.8; }
-  .shelf-card h3{ font-size:1.35rem; margin-bottom:10px; }
-  .shelf-card .open-link{
-    font-size:0.92rem;
-    color:var(--ink-soft);
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-  }
+  .topic-chip:hover{ transform:translateY(-2px); background:var(--clay-putty); }
+  .topic-chip.active{ background:var(--clay-rust); color:var(--parchment); }
+  .topic-chip.active .count{ background:rgba(255,255,255,0.25); color:var(--parchment); }
 
   .material-card{
-    background:linear-gradient(160deg, var(--parchment), var(--clay-putty));
-    border-radius:36px;
-    padding:48px;
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:32px;
-    align-items:center;
+    background:linear-gradient(160deg, var(--parchment), var(--clay-putty)); border-radius:36px; padding:48px;
+    display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center;
     box-shadow: 10px 10px 22px var(--shadow-dark), -6px -6px 16px var(--shadow-light);
   }
   .material-card h3{ font-size:1.6rem; margin-bottom:10px; }
   .material-card p{ color:var(--ink-soft); max-width:48ch; }
 
-  .contribute-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:36px;
-    align-items:start;
-  }
+  .contribute-grid{ display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start; }
   .form-card, .list-card{
-    background:var(--parchment);
-    border-radius:32px;
-    padding:34px;
+    background:var(--parchment); border-radius:32px; padding:34px;
     box-shadow: 9px 9px 18px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
   }
   .form-card h3, .list-card h3{ margin-bottom:6px; font-size:1.3rem; }
   .form-card .hint{ color:var(--ink-soft); font-size:0.9rem; margin-bottom:22px; }
+
+  .warn-banner{
+    display:none; background:#f4e2c9; border:1px solid #cf9b4f; color:#6b4a12; border-radius:16px;
+    padding:14px 18px; font-size:0.86rem; margin-bottom:20px;
+  }
+  .warn-banner.show{ display:block; }
+
   .field{ margin-bottom:16px; }
-  .field label{
-    display:block;
-    font-size:0.85rem;
-    color:var(--ink-soft);
-    margin-bottom:6px;
-  }
-  .field input{
-    width:100%;
-    padding:13px 16px;
-    border-radius:16px;
-    border:none;
-    background:var(--sage);
-    font-family:'Work Sans', sans-serif;
-    font-size:0.96rem;
-    color:var(--ink);
+  .field label{ display:block; font-size:0.85rem; color:var(--ink-soft); margin-bottom:6px; }
+  .field select, .field input[type="text"]{
+    width:100%; padding:13px 16px; border-radius:16px; border:none; background:var(--sage);
+    font-family:'Work Sans', sans-serif; font-size:0.96rem; color:var(--ink);
     box-shadow: inset 3px 3px 7px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+    appearance:none;
   }
-  .field input[type="file"]{
-    padding:10px 14px;
-    box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+  .field select:focus, .field input:focus{ outline:2px solid var(--clay-rust); outline-offset:2px; }
+
+  .upload-zone{
+    border:2px dashed rgba(35,52,32,0.28); border-radius:22px; padding:30px 22px; text-align:center;
+    background:var(--sage); margin-bottom:18px; transition: border-color .2s ease, background .2s ease;
   }
-  .field input:focus{
-    outline:2px solid var(--clay-rust);
-    outline-offset:2px;
-  }
-  .dropzone-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:18px;
-    margin-bottom:20px;
-  }
-  .dropzone{
-    border:2px dashed rgba(35,52,32,0.25);
-    border-radius:22px;
-    padding:26px 22px;
-    text-align:center;
-    background:var(--sage);
-  }
-  .dropzone-icon{
-    width:50px;height:50px;
-    border-radius:15px;
-    background:var(--parchment);
-    display:flex;align-items:center;justify-content:center;
-    margin:0 auto 14px;
+  .upload-zone.drag-over{ border-color:var(--clay-rust); background:var(--clay-putty); }
+  .upload-zone-icon{
+    width:52px;height:52px; border-radius:16px; background:var(--parchment); display:flex;
+    align-items:center; justify-content:center; margin:0 auto 14px;
     box-shadow: 4px 4px 10px var(--shadow-dark), -3px -3px 8px var(--shadow-light);
   }
-  .dropzone-icon svg{ width:22px; height:22px; opacity:0.8; }
-  .dropzone.tone-rust .dropzone-icon svg{ color:var(--clay-rust-dark); }
-  .dropzone h4{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.02rem;
-    margin-bottom:6px;
-  }
-  .dropzone p{ font-size:0.84rem; color:var(--ink-soft); margin-bottom:16px; }
-  .dropzone .file-chosen{
-    font-size:0.82rem;
-    color:var(--clay-rust-dark);
-    margin-top:10px;
-    min-height:1.1em;
-  }
-  .field .or-divider{
-    text-align:center;
-    font-size:0.8rem;
-    color:var(--ink-soft);
-    margin:14px 0;
-    opacity:0.75;
-  }
-  .form-msg{
-    margin-top:14px;
-    font-size:0.9rem;
-    min-height:1.2em;
-  }
+  .upload-zone-icon svg{ width:24px; height:24px; opacity:0.8; color:var(--clay-rust-dark); }
+  .upload-zone h4{ font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; margin-bottom:6px; }
+  .upload-zone p{ font-size:0.86rem; color:var(--ink-soft); margin-bottom:16px; }
+  .upload-zone .file-chosen{ font-size:0.86rem; color:var(--clay-rust-dark); margin-top:12px; font-weight:600; min-height:1.2em; }
+
+  .form-msg{ margin-top:14px; font-size:0.92rem; min-height:1.2em; }
   .form-msg.ok{ color:#3a6b3a; }
-  .form-msg.err{ color:#9c3c2e; }
+  .form-msg.err{ color:#9c3c2e; font-weight:600; }
+  .form-msg.pending{ color:var(--ink-soft); }
 
-  .contrib-item{
-    background:var(--sage);
-    border-radius:20px;
-    padding:16px 18px;
-    margin-bottom:12px;
-    box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
-  }
-  .contrib-item .top{
-    display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
-  }
-  .contrib-item a.title-link{
-    font-weight:600;
-    text-decoration:none;
-    color:var(--clay-rust-dark);
-  }
+  .contrib-item{ background:var(--sage); border-radius:20px; padding:16px 18px; margin-bottom:12px; box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light); }
+  .contrib-item .top{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .contrib-item a.title-link{ font-weight:600; text-decoration:none; color:var(--clay-rust-dark); }
   .contrib-item a.title-link:hover{ text-decoration:underline; }
-  .contrib-item .meta{
-    font-size:0.8rem;
-    color:var(--ink-soft);
-    margin-top:4px;
-  }
-  .contrib-item img.thumb{
-    margin-top:10px;
-    max-width:100%;
-    max-height:180px;
-    border-radius:14px;
-    display:block;
-    box-shadow: 4px 4px 10px var(--shadow-dark);
-  }
-  .contrib-item .del-btn{
-    background:none;
-    border:none;
-    color:#9c3c2e;
-    font-size:0.78rem;
-    cursor:pointer;
-    text-decoration:underline;
-    padding:0;
-    flex-shrink:0;
-  }
-  .empty-state{
-    color:var(--ink-soft);
-    font-size:0.94rem;
-    padding:14px 4px;
-  }
+  .contrib-item .meta{ font-size:0.8rem; color:var(--ink-soft); margin-top:4px; }
+  .contrib-item img.thumb{ margin-top:10px; max-width:100%; max-height:180px; border-radius:14px; display:block; box-shadow: 4px 4px 10px var(--shadow-dark); }
+  .contrib-item .del-btn{ background:none; border:none; color:#9c3c2e; font-size:0.78rem; cursor:pointer; text-decoration:underline; padding:0; flex-shrink:0; }
+  .empty-state{ color:var(--ink-soft); font-size:0.94rem; padding:14px 4px; }
 
-  .admin-zone{
-    margin-top:26px;
-    padding-top:20px;
-    border-top:1px solid rgba(35,52,32,0.12);
-  }
-  .admin-toggle{
-    background:none;
-    border:none;
-    color:var(--ink-soft);
-    font-size:0.82rem;
-    cursor:pointer;
-    text-decoration:underline;
-    padding:0;
-  }
-  .admin-login{
-    margin-top:14px;
-    display:none;
-  }
+  .admin-zone{ margin-top:26px; padding-top:20px; border-top:1px solid rgba(35,52,32,0.12); }
+  .admin-toggle{ background:none; border:none; color:var(--ink-soft); font-size:0.82rem; cursor:pointer; text-decoration:underline; padding:0; }
+  .admin-login{ margin-top:14px; display:none; }
   .admin-login.open{ display:block; }
   .admin-login input{
-    width:100%;
-    margin-bottom:10px;
-    padding:11px 14px;
-    border-radius:14px;
-    border:none;
-    background:var(--sage);
+    width:100%; margin-bottom:10px; padding:11px 14px; border-radius:14px; border:none; background:var(--sage);
     box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
   }
-  .admin-status{
-    font-size:0.82rem;
-    color:var(--ink-soft);
-    margin-top:8px;
-  }
+  .admin-status{ font-size:0.82rem; color:var(--ink-soft); margin-top:8px; }
 
-  footer{
-    background:var(--ink);
-    color:#c9d4c3;
-    padding:8vh 6vw 5vh;
-  }
-  footer .dept{
-    font-family:'Fraunces', serif;
-    font-size:1.7rem;
-    font-weight:600;
-    color:var(--parchment);
-    margin-bottom:14px;
-  }
-  footer .tagline{
-    color:#a9b8a1;
-    max-width:44ch;
-    margin-bottom:44px;
-  }
-  .footer-cols{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:32px;
-    max-width:560px;
-    margin-bottom:40px;
-  }
-  .footer-cols h4{
-    font-size:0.78rem;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:#7f9277;
-    margin-bottom:14px;
-    font-weight:600;
-  }
-  .footer-cols a{
-    display:block;
-    text-decoration:none;
-    color:#dbe4d3;
-    font-size:1rem;
-    margin-bottom:12px;
-    transition:color .15s ease;
-  }
+  footer{ background:var(--ink); color:#c9d4c3; padding:8vh 6vw 5vh; }
+  footer .dept{ font-family:'Fraunces', serif; font-size:1.7rem; font-weight:600; color:var(--parchment); margin-bottom:14px; }
+  footer .tagline{ color:#a9b8a1; max-width:44ch; margin-bottom:44px; }
+  .footer-cols{ display:grid; grid-template-columns:1fr 1fr; gap:32px; max-width:560px; margin-bottom:40px; }
+  .footer-cols h4{ font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color:#7f9277; margin-bottom:14px; font-weight:600; }
+  .footer-cols a{ display:block; text-decoration:none; color:#dbe4d3; font-size:1rem; margin-bottom:12px; transition:color .15s ease; }
   .footer-cols a:hover{ color:var(--parchment); }
-  footer .footer-divider{
-    border:none;
-    border-top:1px solid rgba(255,255,255,0.14);
-    margin:0 0 22px;
-  }
+  footer .footer-divider{ border:none; border-top:1px solid rgba(255,255,255,0.14); margin:0 0 22px; }
   footer .credit{ font-size:0.95rem; }
   footer .credit strong{ color:var(--clay-putty); font-weight:600; }
-  footer .copyright{
-    font-size:0.85rem;
-    color:#8fa088;
-    margin-top:8px;
-  }
+  footer .copyright{ font-size:0.85rem; color:#8fa088; margin-top:8px; }
 
   @media (max-width: 880px){
     .hero{ grid-template-columns:1fr; }
@@ -535,10 +213,7 @@
     .material-card{ grid-template-columns:1fr; }
     .contribute-grid{ grid-template-columns:1fr; }
   }
-
-  @media (prefers-reduced-motion: reduce){
-    .blob-1, .blob-2{ animation:none; }
-  }
+  @media (prefers-reduced-motion: reduce){ .blob-1, .blob-2{ animation:none; } }
 </style>
 </head>
 <body>
@@ -562,7 +237,7 @@
   <nav class="links">
     <a href="#material">Study material</a>
     <a href="#contribute">Contribute</a>
-    <a href="#vikramaditya">vikramaditya</a>
+    <a href="#about">About</a>
   </nav>
 </header>
 
@@ -573,20 +248,20 @@
     <div>
       <p class="eyebrow-text">A student-run shelf for the Department of Zoology</p>
       <h1>Notes and specimens<br>of the <em>zoology</em> we share.</h1>
-      <p class="lede">A common shelf of study material for zoology students at Banaras Hindu University — built by a student, kept honest, and growing with every contribution.</p>
+      <p class="lede">A common shelf of study material for zoology students at Banaras Hindu University — built by a student, kept honest, and growing with every upload.</p>
       <div class="cta-row">
         <a class="clay-btn" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 15L4 9L12 4L20 9V15L12 20L4 15Z" stroke="#f5f1e2" stroke-width="1.5" stroke-linejoin="round"/></svg>
           Open study material
         </a>
-        <a class="clay-btn secondary" href="#contribute">Add your notes</a>
+        <a class="clay-btn secondary" href="#contribute">Upload material</a>
       </div>
     </div>
-
     <div class="counter-card">
       <div class="label">Students who've visited</div>
       <div class="num" id="visitor-count">···</div>
-      <div class="paws">🐾 welcome to the department</div>
+      <div class="paws" id="counter-paws">🐾 welcome to the department</div>
+      <div class="counter-error" id="counter-error" style="display:none; font-size:0.76rem; color:#9c3c2e; margin-top:6px;"></div>
     </div>
   </section>
 
@@ -597,9 +272,9 @@
 
   <section id="about">
     <div class="section-head">
-      <p class="eyebrow-text" style="margin-bottom:8px;">Study shelf</p>
-      <h2>Everything sorted by subject</h2>
-      <p>Each subject opens the department's shared drive, where the full set of notes, papers and reference material for that topic lives.</p>
+      <p class="eyebrow-text" style="margin-bottom:8px;">Browse by topic</p>
+      <h2>Every upload, sorted by subject</h2>
+      <p>Click a topic to see everything students have uploaded under it. Nothing here links out to a fixed file — it's whatever's actually been shared.</p>
     </div>
 
     <div class="note-card">
@@ -607,54 +282,15 @@
       <span class="sign">— Vikramaditya</span>
     </div>
 
-    <div class="shelf-list">
-      <a class="shelf-card tone-green" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
-        <div class="shelf-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Mammalian Endocrinology</h3>
-        <span class="open-link">Open in shared drive ↗</span>
-      </a>
-      <a class="shelf-card tone-rust" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
-        <div class="shelf-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Evolutionary Biology</h3>
-        <span class="open-link">Open in shared drive ↗</span>
-      </a>
-      <a class="shelf-card tone-blue" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
-        <div class="shelf-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Comparative Anatomy</h3>
-        <span class="open-link">Open in shared drive ↗</span>
-      </a>
-      <a class="shelf-card tone-green" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
-        <div class="shelf-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Animal Physiology</h3>
-        <span class="open-link">Open in shared drive ↗</span>
-      </a>
-      <a class="shelf-card tone-rust" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
-        <div class="shelf-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Genetics &amp; Cytology</h3>
-        <span class="open-link">Open in shared drive ↗</span>
-      </a>
-      <a class="shelf-card tone-blue" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
-        <div class="shelf-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Ecology &amp; Environmental Biology</h3>
-        <span class="open-link">Open in shared drive ↗</span>
-      </a>
-      <a class="shelf-card tone-green" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
-        <div class="shelf-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Entomology</h3>
-        <span class="open-link">Open in shared drive ↗</span>
-      </a>
-      <a class="shelf-card tone-rust" href="https://drive.google.com/drive/folders/107yercsuTKO6z5T18FteU4YTJfZ0POIU">
-        <div class="shelf-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11V20H5.5C4.7 20 4 19.3 4 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13V20H18.5C19.3 20 20 19.3 20 18.5V5.5Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Ichthyology</h3>
-        <span class="open-link">Open in shared drive ↗</span>
-      </a>
+    <div class="topic-grid" id="topic-grid">
+      <!-- populated by JS: one chip per subject, with a live count, plus "All" -->
     </div>
   </section>
 
   <section id="material">
     <div class="section-head">
       <h2>Study material</h2>
-      <p>The main drive is where everything lives — question banks, unit notes, diagrams, and reference scans.</p>
+      <p>The main drive is where the original notes and question banks live.</p>
     </div>
     <div class="material-card">
       <div>
@@ -669,64 +305,52 @@
 
   <section id="contribute">
     <div class="section-head">
-      <h2>Add your notes or specimen images</h2>
-      <p>Upload a file straight from your device — photos of specimens, scanned notes, PDFs — or paste a link if it's already hosted somewhere. Either way it lands on the shelf below.</p>
+      <h2>Upload to the shelf</h2>
+      <p>Pick a topic, choose a file, done — it shows up under that topic below for everyone.</p>
     </div>
+
     <div class="contribute-grid">
       <div class="form-card">
-        <h3>Share a resource</h3>
+        <h3>Add material</h3>
         <p class="hint">Files go straight into storage for this site — up to 15MB each.</p>
-        <form id="contrib-form">
-          <div class="field">
-            <label for="c-title">Material title</label>
-            <input id="c-title" type="text" placeholder="e.g. Frog dissection — specimen photo" required>
-          </div>
-          <div class="field">
-            <label for="c-subject">Subject</label>
-            <input id="c-subject" type="text" placeholder="e.g. Comparative Anatomy" required>
-          </div>
-          <div class="dropzone-grid">
-            <div class="dropzone tone-green">
-              <div class="dropzone-icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L7 9M12 4L17 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16V18.5C4 19.3 4.7 20 5.5 20H18.5C19.3 20 20 19.3 20 18.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </div>
-              <h4>Drag a file here, or choose one</h4>
-              <p>Notes, PDFs, scanned pages, slides — any format is fine.</p>
-              <label class="clay-btn secondary small" for="c-file-notes">Choose from device</label>
-              <input id="c-file-notes" type="file" accept=".pdf,.doc,.docx,image/*" hidden>
-              <div class="file-chosen" id="file-chosen-notes"></div>
-            </div>
 
-            <div class="dropzone tone-rust">
-              <div class="dropzone-icon">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5C4 5.7 4.7 5 5.5 5H18.5C19.3 5 20 5.7 20 6.5V17.5C20 18.3 19.3 19 18.5 19H5.5C4.7 19 4 18.3 4 17.5V6.5Z" stroke="currentColor" stroke-width="1.6"/><path d="M4 16L9 11L13 14L17 10L20 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/></svg>
-              </div>
-              <h4>Upload a specimen photo</h4>
-              <p>Field photos, lab specimens or diagrams — for the specimen reference set.</p>
-              <label class="clay-btn secondary small" for="c-file-specimen">Upload specimen image</label>
-              <input id="c-file-specimen" type="file" accept="image/*" hidden>
-              <div class="file-chosen" id="file-chosen-specimen"></div>
+        <div class="warn-banner" id="connection-warning">
+          This site isn't connected to its database yet, so uploads and the visitor count won't work. If you're the site owner: add your Supabase URL and anon key near the top of the script, and make sure the tables from SETUP.md exist.
+        </div>
+
+        <form id="contrib-form" novalidate>
+          <div class="field">
+            <label for="c-subject">Topic</label>
+            <select id="c-subject">
+              <option value="">Choose a topic…</option>
+            </select>
+          </div>
+          <div class="field" id="custom-subject-field" style="display:none;">
+            <label for="c-subject-custom">Topic name</label>
+            <input id="c-subject-custom" type="text" placeholder="e.g. Parasitology">
+          </div>
+
+          <div class="upload-zone" id="upload-zone">
+            <div class="upload-zone-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L7 9M12 4L17 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16V18.5C4 19.3 4.7 20 5.5 20H18.5C19.3 20 20 19.3 20 18.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </div>
+            <h4>Drag a file here, or choose one</h4>
+            <p>Notes, PDFs, scanned pages, specimen photos — any format is fine.</p>
+            <label class="clay-btn secondary small" for="c-file">Choose from device</label>
+            <input id="c-file" type="file" accept=".pdf,.doc,.docx,image/*" hidden>
+            <div class="file-chosen" id="file-chosen"></div>
           </div>
-          <div class="or-divider">— or —</div>
-          <div class="field">
-            <label for="c-link">Paste a link instead</label>
-            <input id="c-link" type="url" placeholder="https://drive.google.com/...">
-          </div>
-          <div class="field">
-            <label for="c-name">Your name</label>
-            <input id="c-name" type="text" placeholder="e.g. Priya, Sem 6" required>
-          </div>
-          <button type="submit" class="clay-btn" id="submit-btn" style="width:100%; justify-content:center;">Post to the shelf</button>
+
+          <button type="submit" class="clay-btn" id="submit-btn" style="width:100%; justify-content:center;">Upload to shelf</button>
           <div class="form-msg" id="form-msg"></div>
         </form>
       </div>
 
       <div class="list-card">
-        <h3>Community shelf</h3>
-        <p class="hint" style="margin-bottom:18px;">Notes, specimen photos, and links added by fellow students.</p>
+        <h3 id="shelf-title">Community shelf</h3>
+        <p class="hint" style="margin-bottom:18px;" id="shelf-subtitle">Everything students have uploaded.</p>
         <div id="contrib-list">
-          <div class="empty-state">Loading contributions…</div>
+          <div class="empty-state">Loading…</div>
         </div>
 
         <div class="admin-zone">
@@ -746,13 +370,12 @@
 <footer>
   <div class="dept">Dept. of Zoology, BHU</div>
   <p class="tagline">A student-maintained shelf of study material for the Zoology department at Banaras Hindu University.</p>
-
   <div class="footer-cols">
     <div>
       <h4>Shelf</h4>
       <a href="#material">Study material</a>
-      <a href="#contribute">Contribute notes</a>
-      <a href="#contribute">Specimens</a>
+      <a href="#contribute">Upload material</a>
+      <a href="#about">Browse by topic</a>
     </div>
     <div>
       <h4>Department</h4>
@@ -760,7 +383,6 @@
       <a href="#about">About this shelf</a>
     </div>
   </div>
-
   <hr class="footer-divider">
   <div class="credit">Developed by <strong>Vikramaditya</strong></div>
   <div class="copyright">© Dept. of Zoology, BHU — for academic use only</div>
@@ -772,25 +394,122 @@
   // SUPABASE CONFIG — fill these in with your own project values
   // (Project Settings → API in your Supabase dashboard)
   // ============================================================
-  const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
-  const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+  const SUPABASE_URL = 'https://vtjdxeclphzqwptfnxed.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_uwgycAFooYrxe80nNaKk3w_p7TvN9cc';
   const BUCKET = 'specimens';
   const MAX_FILE_MB = 15;
 
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const SUBJECTS = [
+    'Mammalian Endocrinology',
+    'Evolutionary Biology',
+    'Comparative Anatomy',
+    'Animal Physiology',
+    'Genetics & Cytology',
+    'Ecology & Environmental Biology',
+    'Entomology',
+    'Ichthyology'
+  ];
+
+  let supabase = null;
+  let supabaseReady = false;
+  let isAdmin = false;
+  let activeFilter = null; // null = show all
+  let allItems = [];
+
+  // ---- Defensive Supabase init: a failure here must NEVER stop the rest
+  // of the page (buttons, nav, form validation) from working. ----
+  try {
+    if (!window.supabase) throw new Error('Supabase library did not load (check your internet connection or ad-blocker).');
+    if (!SUPABASE_URL || SUPABASE_URL.includes('YOUR_SUPABASE') || !SUPABASE_ANON_KEY || SUPABASE_ANON_KEY.includes('YOUR_SUPABASE')){
+      throw new Error('Supabase URL/key have not been filled in yet.');
+    }
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    supabaseReady = true;
+  } catch (e) {
+    console.error('Supabase did not initialise:', e.message);
+    document.getElementById('connection-warning').classList.add('show');
+  }
+
+  // ---- Build the topic select + topic chips ----
+  const subjectSelect = document.getElementById('c-subject');
+  SUBJECTS.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    subjectSelect.appendChild(opt);
+  });
+  const otherOpt = document.createElement('option');
+  otherOpt.value = '__other__'; otherOpt.textContent = 'Other (type your own)';
+  subjectSelect.appendChild(otherOpt);
+
+  subjectSelect.addEventListener('change', () => {
+    document.getElementById('custom-subject-field').style.display =
+      subjectSelect.value === '__other__' ? 'block' : 'none';
+  });
+
+  function renderTopicChips(){
+    const grid = document.getElementById('topic-grid');
+    const counts = {};
+    allItems.forEach(item => { counts[item.subject] = (counts[item.subject] || 0) + 1; });
+
+    let html = `<button class="topic-chip ${activeFilter === null ? 'active' : ''}" data-topic="__all__">
+        All topics <span class="count">${allItems.length}</span>
+      </button>`;
+
+    SUBJECTS.forEach(s => {
+      html += `<button class="topic-chip ${activeFilter === s ? 'active' : ''}" data-topic="${escapeAttr(s)}">
+          ${escapeHtml(s)} <span class="count">${counts[s] || 0}</span>
+        </button>`;
+    });
+
+    // Any custom (non-preset) topics that already have uploads also get a chip
+    Object.keys(counts).forEach(s => {
+      if (!SUBJECTS.includes(s)){
+        html += `<button class="topic-chip ${activeFilter === s ? 'active' : ''}" data-topic="${escapeAttr(s)}">
+            ${escapeHtml(s)} <span class="count">${counts[s]}</span>
+          </button>`;
+      }
+    });
+
+    grid.innerHTML = html;
+    grid.querySelectorAll('.topic-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const topic = btn.dataset.topic;
+        activeFilter = topic === '__all__' ? null : topic;
+        renderTopicChips();
+        renderShelfList();
+        document.getElementById('contribute').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
 
   // ---- Visitor counter ----
   async function initCounter(){
     const el = document.getElementById('visitor-count');
+    const errEl = document.getElementById('counter-error');
+    const paws = document.getElementById('counter-paws');
+
+    if (!supabaseReady){
+      el.textContent = '—';
+      paws.style.display = 'none';
+      errEl.style.display = 'block';
+      errEl.textContent = 'Not connected to the database yet.';
+      return;
+    }
     try {
       const { data, error } = await supabase.rpc('increment_visitor_count');
       if (error) throw error;
       animateCount(el, data);
     } catch (e) {
+      console.error('Visitor counter failed:', e.message);
       el.textContent = '—';
+      paws.style.display = 'none';
+      errEl.style.display = 'block';
+      // Most common cause: the increment_visitor_count() function or
+      // visitor_counter table from SETUP.md hasn't been created yet,
+      // or "grant execute ... to anon" wasn't run.
+      errEl.textContent = e.message || 'Counter unavailable right now.';
     }
   }
-
   function animateCount(el, target){
     let current = 0;
     const step = Math.max(1, Math.ceil(target / 30));
@@ -801,37 +520,55 @@
     }, 25);
   }
 
-  // ---- Community contributions ----
-  let isAdmin = false;
-
+  // ---- Load + render contributions ----
   async function loadContributions(){
-    const { data, error } = await supabase
-      .from('contributions')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error){
-      document.getElementById('contrib-list').innerHTML =
-        '<div class="empty-state">Couldn\'t load the shelf right now.</div>';
+    const list = document.getElementById('contrib-list');
+    if (!supabaseReady){
+      list.innerHTML = '<div class="empty-state">Shelf will appear here once the site is connected to its database.</div>';
+      renderTopicChips();
       return;
     }
-    renderContributions(data || []);
+    try {
+      const { data, error } = await supabase
+        .from('contributions')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (error) throw error;
+      allItems = data || [];
+      renderTopicChips();
+      renderShelfList();
+    } catch (e) {
+      console.error('Could not load shelf:', e.message);
+      list.innerHTML = `<div class="empty-state">Couldn't load the shelf (${escapeHtml(e.message)}).</div>`;
+    }
   }
 
-  function renderContributions(items){
+  function renderShelfList(){
     const list = document.getElementById('contrib-list');
-    if (!items || items.length === 0){
-      list.innerHTML = '<div class="empty-state">No contributions yet — be the first to add your notes.</div>';
+    const title = document.getElementById('shelf-title');
+    const subtitle = document.getElementById('shelf-subtitle');
+    const items = activeFilter ? allItems.filter(i => i.subject === activeFilter) : allItems;
+
+    title.textContent = activeFilter ? activeFilter : 'Community shelf';
+    subtitle.textContent = activeFilter
+      ? `Everything uploaded under ${activeFilter}.`
+      : 'Everything students have uploaded.';
+
+    if (items.length === 0){
+      list.innerHTML = activeFilter
+        ? `<div class="empty-state">Nothing uploaded under ${escapeHtml(activeFilter)} yet — be the first.</div>`
+        : '<div class="empty-state">No uploads yet — be the first to add something.</div>';
       return;
     }
+
     list.innerHTML = items.map(item => {
-      let linkHref = item.link;
+      let href = item.link || '#';
       let thumb = '';
       if (item.file_path){
         const { data } = supabase.storage.from(BUCKET).getPublicUrl(item.file_path);
-        linkHref = data.publicUrl;
+        href = data.publicUrl;
         if (item.file_type && item.file_type.startsWith('image/')){
-          thumb = `<img class="thumb" src="${escapeAttr(linkHref)}" alt="${escapeAttr(item.title)}">`;
+          thumb = `<img class="thumb" src="${escapeAttr(href)}" alt="${escapeAttr(item.title)}">`;
         }
       }
       const delBtn = isAdmin
@@ -840,10 +577,10 @@
       return `
         <div class="contrib-item">
           <div class="top">
-            <a class="title-link" href="${escapeAttr(linkHref || '#')}">${escapeHtml(item.title)}</a>
+            <a class="title-link" href="${escapeAttr(href)}">${escapeHtml(item.title)}</a>
             ${delBtn}
           </div>
-          <div class="meta">${escapeHtml(item.subject)} · shared by ${escapeHtml(item.name)}</div>
+          <div class="meta">${escapeHtml(item.subject)}</div>
           ${thumb}
         </div>
       `;
@@ -856,123 +593,127 @@
 
   async function deleteContribution(id, filePath){
     if (!confirm('Remove this from the shelf?')) return;
-    await supabase.from('contributions').delete().eq('id', id);
-    if (filePath){
-      await supabase.storage.from(BUCKET).remove([filePath]);
+    try {
+      const { error } = await supabase.from('contributions').delete().eq('id', id);
+      if (error) throw error;
+      if (filePath){ await supabase.storage.from(BUCKET).remove([filePath]); }
+      loadContributions();
+    } catch (e) {
+      alert('Could not remove this item: ' + e.message);
     }
-    loadContributions();
   }
 
   function escapeHtml(str){
     return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
   }
-  function escapeAttr(str){
-    return String(str).replace(/"/g, '&quot;');
-  }
+  function escapeAttr(str){ return String(str).replace(/"/g, '&quot;'); }
 
-  // ---- Dropzone filename display (and keep the two file inputs mutually exclusive) ----
-  const notesFileInput = document.getElementById('c-file-notes');
-  const specimenFileInput = document.getElementById('c-file-specimen');
-  notesFileInput.addEventListener('change', () => {
-    document.getElementById('file-chosen-notes').textContent = notesFileInput.files[0] ? `Selected: ${notesFileInput.files[0].name}` : '';
-    if (notesFileInput.files[0]){
-      specimenFileInput.value = '';
-      document.getElementById('file-chosen-specimen').textContent = '';
+  // ---- File picker + drag-and-drop ----
+  const fileInput = document.getElementById('c-file');
+  const uploadZone = document.getElementById('upload-zone');
+  fileInput.addEventListener('change', () => {
+    document.getElementById('file-chosen').textContent =
+      fileInput.files[0] ? `Selected: ${fileInput.files[0].name}` : '';
+  });
+  ['dragover','dragenter'].forEach(evt => uploadZone.addEventListener(evt, (e) => {
+    e.preventDefault(); uploadZone.classList.add('drag-over');
+  }));
+  ['dragleave','drop'].forEach(evt => uploadZone.addEventListener(evt, (e) => {
+    e.preventDefault(); uploadZone.classList.remove('drag-over');
+  }));
+  uploadZone.addEventListener('drop', (e) => {
+    if (e.dataTransfer.files.length){
+      fileInput.files = e.dataTransfer.files;
+      document.getElementById('file-chosen').textContent = `Selected: ${fileInput.files[0].name}`;
     }
   });
-  specimenFileInput.addEventListener('change', () => {
-    document.getElementById('file-chosen-specimen').textContent = specimenFileInput.files[0] ? `Selected: ${specimenFileInput.files[0].name}` : '';
-    if (specimenFileInput.files[0]){
-      notesFileInput.value = '';
-      document.getElementById('file-chosen-notes').textContent = '';
-    }
-  });
 
-  // ---- Submit new contribution (file upload or link) ----
+  // ---- Submit ----
   document.getElementById('contrib-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // always first — a broken form must never fall back to a real page reload
+
     const msg = document.getElementById('form-msg');
     const submitBtn = document.getElementById('submit-btn');
-    const title = document.getElementById('c-title').value.trim();
-    const subject = document.getElementById('c-subject').value.trim();
-    const link = document.getElementById('c-link').value.trim();
-    const name = document.getElementById('c-name').value.trim();
-    const notesInput = document.getElementById('c-file-notes');
-    const specimenInput = document.getElementById('c-file-specimen');
-    // Whichever dropzone the student actually used wins; if both were somehow
-    // filled, the specimen photo takes priority since it was chosen last.
-    const file = specimenInput.files[0] || notesInput.files[0];
+    const chosenSubject = subjectSelect.value === '__other__'
+      ? document.getElementById('c-subject-custom').value.trim()
+      : subjectSelect.value;
+    const file = fileInput.files[0];
 
-    if (!file && !link){
-      msg.textContent = 'Attach a file or paste a link — one of the two is needed.';
+    if (!supabaseReady){
+      msg.textContent = 'Can\'t upload yet — this site isn\'t connected to its database. See the note above the form.';
       msg.className = 'form-msg err';
       return;
     }
-    if (link && !/^https?:\/\//i.test(link)){
-      msg.textContent = 'That link needs to start with https://';
+    if (!chosenSubject){
+      msg.textContent = 'Pick a topic first.';
       msg.className = 'form-msg err';
       return;
     }
-    if (file && file.size > MAX_FILE_MB * 1024 * 1024){
-      msg.textContent = `That file is over ${MAX_FILE_MB}MB — try a link instead.`;
+    if (!file){
+      msg.textContent = 'Choose a file to upload.';
+      msg.className = 'form-msg err';
+      return;
+    }
+    if (file.size > MAX_FILE_MB * 1024 * 1024){
+      msg.textContent = `That file is over ${MAX_FILE_MB}MB — try a smaller one.`;
       msg.className = 'form-msg err';
       return;
     }
 
     submitBtn.disabled = true;
-    msg.textContent = file ? 'Uploading…' : 'Saving…';
-    msg.className = 'form-msg';
+    msg.textContent = 'Uploading…';
+    msg.className = 'form-msg pending';
 
+    const path = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_')}`;
     try {
-      let file_path = null;
-      let file_type = null;
-
-      if (file){
-        const path = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_')}`;
-        const { error: upErr } = await supabase.storage.from(BUCKET).upload(path, file);
-        if (upErr) throw upErr;
-        file_path = path;
-        file_type = file.type;
-      }
+      const { error: upErr } = await supabase.storage.from(BUCKET).upload(path, file);
+      if (upErr) throw new Error('Upload failed: ' + upErr.message);
 
       const { error: insErr } = await supabase.from('contributions').insert({
-        title, subject, name,
-        link: link || null,
-        file_path, file_type
+        title: file.name,
+        subject: chosenSubject,
+        file_path: path,
+        file_type: file.type
       });
-      if (insErr) throw insErr;
+      if (insErr){
+        // Don't leave an orphaned file in storage if the database write failed
+        await supabase.storage.from(BUCKET).remove([path]);
+        throw new Error('Could not save to the shelf: ' + insErr.message);
+      }
 
       document.getElementById('contrib-form').reset();
-      document.getElementById('file-chosen-notes').textContent = '';
-      document.getElementById('file-chosen-specimen').textContent = '';
-      msg.textContent = 'Added to the community shelf — thank you!';
+      document.getElementById('custom-subject-field').style.display = 'none';
+      document.getElementById('file-chosen').textContent = '';
+      msg.textContent = `Uploaded under "${chosenSubject}" — it's on the shelf now.`;
       msg.className = 'form-msg ok';
-      loadContributions();
+      await loadContributions();
     } catch (err) {
-      msg.textContent = 'Something went wrong — please try again.';
+      console.error(err);
+      msg.textContent = err.message || 'Something went wrong — please try again.';
       msg.className = 'form-msg err';
     } finally {
       submitBtn.disabled = false;
     }
   });
 
-  // ---- Admin login (only you should have these credentials) ----
+  // ---- Admin login ----
   document.getElementById('admin-toggle').addEventListener('click', () => {
     document.getElementById('admin-login').classList.toggle('open');
   });
-
   document.getElementById('admin-login-btn').addEventListener('click', async () => {
+    const status = document.getElementById('admin-status');
+    if (!supabaseReady){ status.textContent = 'Not connected to the database yet.'; return; }
     const email = document.getElementById('admin-email').value.trim();
     const password = document.getElementById('admin-pass').value;
-    const status = document.getElementById('admin-status');
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error){
-      status.textContent = 'Sign-in failed.';
-      return;
+    try {
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      isAdmin = true;
+      status.textContent = 'Signed in — remove buttons are now visible below.';
+      renderShelfList();
+    } catch (e) {
+      status.textContent = 'Sign-in failed: ' + e.message;
     }
-    isAdmin = true;
-    status.textContent = 'Signed in — remove buttons are now visible below.';
-    loadContributions();
   });
 
   initCounter();
