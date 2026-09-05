@@ -82,7 +82,18 @@
   .clay-btn:disabled{ opacity:0.55; cursor:not-allowed; transform:none; }
 
   .counter-card{
-    justify-self:end; background:var(--parchment); border-radius:32px; padding:22px 26px; width:min(260px, 100%);
+   .hero-photo{
+  justify-self:end;
+  width:100%;
+  max-width:320px;
+}
+
+.hero-photo img{
+  width:100%;
+  border-radius:30px;
+  display:block;
+  box-shadow:8px 8px 18px rgba(35,52,32,0.28);
+} justify-self:end; background:var(--parchment); border-radius:32px; padding:22px 26px; width:min(260px, 100%);
     box-shadow: 8px 8px 18px var(--shadow-dark), -6px -6px 14px var(--shadow-light); text-align:center;
   }
   .counter-card .label{ font-size:0.82rem; color:var(--ink-soft); margin-bottom:6px; }
@@ -257,11 +268,8 @@
         <a class="clay-btn secondary" href="#contribute">Upload material</a>
       </div>
     </div>
-    <div class="counter-card">
-      <div class="label">Students who've visited</div>
-      <div class="num" id="visitor-count">···</div>
-      <div class="paws" id="counter-paws">🐾 welcome to the department</div>
-      <div class="counter-error" id="counter-error" style="display:none; font-size:0.76rem; color:#9c3c2e; margin-top:6px;"></div>
+    <div class="hero-photo">
+  <img src="images/zoology.jpg" alt="Department of Zoology BHU"></div>
     </div>
   </section>
 
